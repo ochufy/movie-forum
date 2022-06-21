@@ -26,7 +26,7 @@ function Home() {
       <MovieCard />
       <MovieCard />
     </ Box>
-    <ForumButton />
+    {/*<ForumButton />*/}
     </div>
   );
 }

@@ -4,31 +4,15 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-// import {makeStyles} from "@mui/styles";
-//
-// const useStyles = makeStyles({
-//   root: {
-//     maxWidth: 345
-//   },
-//   media: {
-//     height: 140
-//   }
-// });
+import poster from "./samplePoster.jpg";
 
 function MovieCard() {
-  //const classes = useStyles();
-  // className={classes.root}
-  // className={classes.media}
   return (
     <Card  sx={{ height: 450, maxWidth: 300, margin: "auto"}}>
-      <CardActionArea>
         <CardMedia
-
-          style={{height: 0, paddingTop: '83%'}}
           component="img"
           height="250"
-          image="/public/samplePoster.jpg"
-          //sx={{backgroundColor: "red", opacity: 0.6}}
+          image={poster}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -40,7 +24,6 @@ function MovieCard() {
             Id leo in vitae turpis massa.
           </Typography>
         </CardContent>
-      </CardActionArea>
       <CardActions>
         <Button size="small" color="error">
           Rate
