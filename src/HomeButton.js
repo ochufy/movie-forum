@@ -1,17 +1,17 @@
 import Button from "@mui/material/Button";
 import {useNavigate} from "react-router-dom";
 
-function ForumButton(){
+function HomeButton(){
   const navigate = useNavigate();
   return(
     <Button
-      variant="outlined"
+      variant="contained"
       color="success"
-      onClick={() => navigate("/forum")}
+      onClick={() => navigate("/")}
     >
-      Forum
+      Home
     </Button>
   );
 }
 
-export default ForumButton;
+export default HomeButton;

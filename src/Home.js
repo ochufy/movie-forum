@@ -4,6 +4,7 @@ import MovieCard from "./MovieCard.js";
 import Box from '@mui/material/Box';
 import ForumButton from "./ForumButton.js";
 
+
 function Home() {
   return (
     <div>
