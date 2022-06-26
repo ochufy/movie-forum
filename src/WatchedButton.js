@@ -11,8 +11,6 @@ import RatingStars from "./RatingStars.js";
 function WatchedButton() {
   const [rating, showRating] = useState(false);
 
-
-
   return (
     <Box
     sx={{
