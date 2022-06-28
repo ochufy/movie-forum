@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActions } from '@mui/material';
+// import ButtonBase from '@mui/material/ButtonBase';
 import poster from "./samplePoster.jpg";
 
 function MovieCard() {
