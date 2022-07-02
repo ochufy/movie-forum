@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -10,27 +9,25 @@ function SideHeading(){
         fontSize: 65,
         body1: {
           color: "white",
-          opacity: 0.6
+          opacity: 0.8
         }
       }
     }
   );
 
   return(
-    <Box>
       <ThemeProvider theme={theme1}>
         <Typography
           sx={{
             top:15,
             left:50,
-            position: "fixed",
-            width: "29%"
+            width: "29%",
+            position: "fixed"
           }}
         >
           Movie Forum
         </Typography>
       </ThemeProvider>
-    </Box>
   );
 }
 

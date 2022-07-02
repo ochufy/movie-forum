@@ -3,6 +3,9 @@ import Home from "./Home.js";
 import Forum from "./Forum.js";
 import MoviePage from "./MoviePage.js";
 
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+
 function App() {
   return (
     <Routes>

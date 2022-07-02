@@ -1,17 +1,21 @@
 import SideHeading from "./SideHeading.js";
 import SearchBar from "./SearchBar.js";
-import MovieCard from "./MovieCard.js";
 import Box from '@mui/material/Box';
+import PopularCarousel from "./PopularCarousel.js";
 //import ForumButton from "./ForumButton.js";
+// import CarouselTest from "./CarouselTest.js";
 
 function Home() {
   return (
     <div>
+    <Box
+    >
     <SideHeading />
     <SearchBar />
+    </Box>
     <Box
     sx={{
-      width: "90%",
+      width: "100%",
       height: 450,
       margin: "2% auto",
       //backgroundColor: 'blue',
@@ -21,12 +25,10 @@ function Home() {
       alignItems: 'center'
     }}
     >
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
+    <PopularCarousel />
+
+    {/*<CarouselTest />*/}
     </ Box>
-    {/*<ForumButton />*/}
     </div>
   );
 }

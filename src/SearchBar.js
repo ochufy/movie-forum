@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
 import Autocomplete from '@mui/material/Autocomplete';
 import top100Films from "./top100Films.js";
 
@@ -23,16 +23,15 @@ function SearchBar() {
   }
 
   return(
-    <Stack
-      spacing={2}
+    <Box>
+      <Autocomplete
       sx={{
         width: "55%",
         backgroundColor: "white",
-        borderRadius: 1,
-        opacity: 0.5,
-        margin: "3rem 5rem auto auto"
-      }}>
-      <Autocomplete
+        opacity: 0.8,
+        margin: "3rem 5rem auto auto",
+        mb: 0,
+      }}
         options={top100Films.map((option) => option.title)}
         // inputValue={title}
         onInputChange={(event, newTitle) => {
@@ -50,14 +49,13 @@ function SearchBar() {
             sx={{
               "& label": {
                 marginLeft: "40%",
-                "&.Mui-focused": {marginLeft: 0}
+                "&.Mui-focused": {marginLeft: 0},
               }
             }}
           />
         }
       />
-
-    </Stack>
+    </Box>
   );
 }
 

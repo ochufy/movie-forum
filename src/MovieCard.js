@@ -4,25 +4,41 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActions } from '@mui/material';
-// import ButtonBase from '@mui/material/ButtonBase';
-import poster from "./samplePoster.jpg";
+import Axios from "axios";
+import {useState} from "react";
 
-function MovieCard() {
+function MovieCard(props) {
+
+  var infoLink = "http://www.omdbapi.com/?apikey=450279fa&i=" + props.imdbId;
+
+  const [poster, setPoster] = useState("");
+  const [title, setTitle] = useState("");
+  const [genres, setGenres] = useState("");
+
+  Axios.get(infoLink)
+  .then(
+    (response) => {
+      setPoster(response.data.Poster);
+      setTitle(response.data.Title);
+      setGenres(response.data.Genre);
+    }
+  )
+
   return (
-    <Card  sx={{ height: 450, maxWidth: 300, margin: "auto"}}>
+    <Card  sx={{ height: 440, width: 225, margin: "auto"}}>
         <CardMedia
           component="img"
-          height="250"
+          width="185.3"
+          height="274.233"
           image={poster}
         />
+
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Movie
+          <Typography gutterBottom variant="subtitle1" component="div">
+            {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Id leo in vitae turpis massa.
+            {genres}
           </Typography>
         </CardContent>
       <CardActions>
