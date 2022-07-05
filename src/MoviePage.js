@@ -11,10 +11,14 @@ import WatchedButton from "./WatchedButton.js";
 
 import Axios from "axios";
 import {useState} from "react";
+import {useLocation} from "react-router-dom";
+
 
 function MoviePage(){
 
-  var infoLink = "http://www.omdbapi.com/?apikey=450279fa&i=tt1375666";
+  const location = useLocation();
+  var id = location.state.imdbId.id;
+  var infoLink = `http://www.omdbapi.com/?apikey=450279fa&i=${id}&plot=full`;
 
   const [poster, setPoster] = useState("");
   const [title, setTitle] = useState("");
@@ -49,14 +53,21 @@ function MoviePage(){
         flexDirection: 'row'
       }}
       >
-      <Card sx={{borderRadius: 5, display: "flex", flexDirection: 'row', height: 400, maxWidth: 800}}>
+      <Card
+        sx={{
+          borderRadius: 5,
+          display: "flex",
+          flexDirection: 'row',
+          height: 450,
+          maxWidth: 800
+        }}>
       <CardMedia
         component="img"
         height="450"
         image={poster}
       />
       <CardContent sx={{display: "flex", flexDirection: 'column', justifyContent: 'space-between', padding: "3rem"}}>
-        <Typography gutterBottom variant="h3" component="div">
+        <Typography gutterBottom variant="h4" component="div">
           {title}
         </Typography>
         <Typography variant="body1" color="text.secondary">
@@ -73,7 +84,7 @@ function MoviePage(){
         </Typography>
         <CardActions>
           <ForumButton />
-          <TrailerButton id="tt1375666"/>
+          <TrailerButton id={id}/>
           <HomeButton />
         </CardActions>
       </CardContent>

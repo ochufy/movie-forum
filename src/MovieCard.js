@@ -6,10 +6,13 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActions } from '@mui/material';
 import Axios from "axios";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 function MovieCard(props) {
 
-  var infoLink = "http://www.omdbapi.com/?apikey=450279fa&i=" + props.imdbId;
+  const navigate = useNavigate();
+  var id = props.imdbId;
+  var infoLink = `http://www.omdbapi.com/?apikey=450279fa&i=${id}`;
 
   const [poster, setPoster] = useState("");
   const [title, setTitle] = useState("");
@@ -24,8 +27,11 @@ function MovieCard(props) {
     }
   )
 
+  const logId = () => {
+    navigate(`moviepage/${id}`, {state:{imdbId: {id}}});
+  }
   return (
-    <Card  sx={{ height: 440, width: 225, margin: "auto"}}>
+    <Card  sx={{ height: 385, width: 185.3, margin: "auto"}}>
         <CardMedia
           component="img"
           width="185.3"
@@ -33,16 +39,16 @@ function MovieCard(props) {
           image={poster}
         />
 
-        <CardContent>
-          <Typography gutterBottom variant="subtitle1" component="div">
+        <CardContent sx={{paddingBottom:0}}>
+          <Typography variant="subtitle1" component="div" noWrap={true}>
             {title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary" noWrap={true}>
             {genres}
           </Typography>
         </CardContent>
       <CardActions>
-        <Button size="small" color="error">
+        <Button size="small" onClick={logId}>
           Rate
         </Button>
       </CardActions>
