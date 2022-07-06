@@ -5,7 +5,7 @@ import {useState} from "react";
 
 function PopularCarousel() {
 
-  var mostPopularMovies = "https://imdb-api.com/en/API/MostPopularMovies/k_rynx2gsy";
+  var mostPopularMovies = `https://imdb-api.com/en/API/MostPopularMovies/${process.env.REACT_APP_IMDB_KEY}`;
   const [popularId1, setPopularId1] = useState("");
   const [popularId2, setPopularId2] = useState("");
   const [popularId3, setPopularId3] = useState("");

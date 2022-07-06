@@ -12,7 +12,7 @@ function MovieCard(props) {
 
   const navigate = useNavigate();
   var id = props.imdbId;
-  var infoLink = `http://www.omdbapi.com/?apikey=450279fa&i=${id}`;
+  var infoLink = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_KEY}&i=${id}`;
 
   const [poster, setPoster] = useState("");
   const [title, setTitle] = useState("");

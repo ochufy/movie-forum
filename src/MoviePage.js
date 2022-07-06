@@ -18,7 +18,7 @@ function MoviePage(){
 
   const location = useLocation();
   var id = location.state.imdbId.id;
-  var infoLink = `http://www.omdbapi.com/?apikey=450279fa&i=${id}&plot=full`;
+  var infoLink = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_KEY}&i=${id}&plot=full`;
 
   const [poster, setPoster] = useState("");
   const [title, setTitle] = useState("");

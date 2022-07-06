@@ -3,14 +3,15 @@ import SearchBar from "./SearchBar.js";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import PopularCarousel from "./PopularCarousel.js";
+import Dashboard from "./Dashboard.js";
 //import ForumButton from "./ForumButton.js";
 // import CarouselTest from "./CarouselTest.js";
 
 function Home() {
   return (
-    <div>
-    <Box
-    >
+    <>
+    <Dashboard />
+    <Box>
     <SideHeading />
     <SearchBar />
     </Box>
@@ -53,8 +54,7 @@ function Home() {
       <PopularCarousel />
       </Box>
     </ Box>
-
-    </div>
+    </>
   );
 }
 export default Home;
