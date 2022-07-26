@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 
 function RatingStars() {
   return (
-    <Stack sx={{display: "flex", alignItems: "center"}} spacing={1}>
+    <Stack sx={{mb: "6%", display: "flex", alignItems: "center"}} spacing={1}>
     <Typography variant="body1">
       Rate it!
     </Typography>

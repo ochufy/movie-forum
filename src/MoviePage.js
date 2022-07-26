@@ -18,7 +18,7 @@ function MoviePage(){
 
   const location = useLocation();
   var id = location.state.imdbId.id;
-  var infoLink = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_KEY}&i=${id}&plot=full`;
+  var infoLink = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_KEY}&i=${id}&plot=short`;
 
   const [poster, setPoster] = useState("");
   const [title, setTitle] = useState("");
@@ -83,13 +83,13 @@ function MoviePage(){
           {plot}
         </Typography>
         <CardActions>
-          <ForumButton />
+          <ForumButton title={title} id={id}/>
           <TrailerButton id={id}/>
           <HomeButton />
         </CardActions>
       </CardContent>
       </Card>
-      <WatchedButton />
+      <WatchedButton title={title}/>
       </Box>
     </>
   );

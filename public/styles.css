@@ -1,6 +1,10 @@
 body {
-  background-color: #F0EBE3;
+  background-color: #F1F0C0;
   background-image: url("cartographer.png");
 }
+
+/* #landingText {
+  -webkit-text-stroke: 1px #2C3639;
+} */
 
 /* red #8f0000 */

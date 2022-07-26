@@ -1,4 +1,5 @@
 import { useContext, createContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   GoogleAuthProvider,
   signInWithPopup,
@@ -21,15 +22,19 @@ export const AuthContextProvider = ({ children }) => {
       signOut(auth)
   }
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log('User', currentUser)
+      // console.log('User', currentUser);
+      if(currentUser == null)
+        navigate('/');
     });
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [navigate]);
 
   return (
     <AuthContext.Provider value={{ googleSignIn, logOut, user }}>

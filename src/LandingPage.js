@@ -42,7 +42,7 @@ import { useNavigate } from 'react-router-dom';
 
   useEffect(() => {
     if (user != null) {
-      navigate('/home');
+      navigate("/home");
     }
   }, [user, navigate]);
 

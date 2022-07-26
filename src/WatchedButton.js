@@ -8,14 +8,42 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import RatingStars from "./RatingStars.js";
 
-function WatchedButton() {
+import { collection, getDocs, addDoc } from "firebase/firestore";
+import { db } from "./Firebase.js";
+import { UserAuth } from './Context/AuthContext.js';
+
+function WatchedButton(props) {
+  const { user } = UserAuth();
+  // console.log(user.uid);
+
+  const usersRef = collection(db, `/users/${user.uid}/watched`);
+  getDocs(usersRef)
+    .then((snapshot) => {
+      // console.log(snapshot.docs);
+      let userWatched = []
+      snapshot.docs.forEach((doc) => {
+        userWatched.push({...doc.data(), id: doc.id})
+      })
+      // console.log(userWatched);
+    });
+
   const [rating, showRating] = useState(false);
+
+
+  const handleWatched = () => {
+    showRating(true);
+    console.log(props.title);
+
+    //add movie title to watched collection in users collection
+    addDoc(usersRef, {title: props.title})
+  }
 
   return (
     <Box
     sx={{
       width: "25%",
-      height: 300,
+      height: "auto",
+      minHeight: 150,
       display: "flex",
       justifyContent: 'center',
       flexWrap: 'wrap',
@@ -29,8 +57,8 @@ function WatchedButton() {
             aria-labelledby="demo-radio-buttons-group-label"
             defaultValue="no"
             name="radio-buttons-group"
-            >
-            <FormControlLabel value="yes" control={<Radio />} label="Yes!" onClick={() => showRating(true)}/>
+          >
+            <FormControlLabel value="yes" control={<Radio />} label="Yes!" onClick={handleWatched}/>
             <FormControlLabel value="no" control={<Radio />} label="No" onClick={() => showRating(false)}/>
           </RadioGroup>
         </FormControl>

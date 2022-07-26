@@ -1,10 +1,10 @@
 import * as React from 'react';
-import IconButton from '@mui/material/IconButton';
+import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { UserAuth } from './Context/AuthContext.js';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from "react-router-dom";
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -17,22 +17,22 @@ export default function BasicMenu() {
   };
 
   const { logOut, user } = UserAuth();
-  const navigate = useNavigate();
 
   const handleSignOut = async () => {
       try {
         await logOut()
-        navigate('/')
-
       } catch (error) {
         console.log(error)
       }
   };
 
+  const navigate = useNavigate();
+
   return (
     <div>
-      <IconButton
+      <Avatar
         size="large"
+        src={user.photoURL}
         title={user?.displayName}
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
@@ -41,13 +41,11 @@ export default function BasicMenu() {
         sx={{
           position: "fixed",
           ml: "95%",
-          mt: "0.05%",
-          color: "#635666",
-          "&:hover": {color: "#898AA6"}
+          mt: "0.09%",
         }}
       >
         <AccountCircleIcon fontSize="large"/>
-      </IconButton>
+      </Avatar>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
@@ -57,7 +55,7 @@ export default function BasicMenu() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={() => navigate("/account")}>My account</MenuItem>
         <MenuItem onClick={handleSignOut}>Logout</MenuItem>
       </Menu>
     </div>

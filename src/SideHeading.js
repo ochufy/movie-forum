@@ -22,7 +22,7 @@ function SideHeading(){
             top:15,
             left:50,
             width: "29%",
-            position: "fixed"
+            position: "absolute"
           }}
         >
           Movie Forum

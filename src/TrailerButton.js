@@ -5,7 +5,7 @@ import {useState} from "react";
 function TrailerButton(props){
 
   const [videoLink, setVideoLink] = useState("");
-  var trailerLink = "https://imdb-api.com/en/API/Trailer/k_rynx2gsy/" + props.id;
+  var trailerLink = `https://imdb-api.com/en/API/Trailer/${process.env.REACT_APP_IMDB_KEY}/${props.id}`;
 
   const getLink = () => {
     Axios.get(trailerLink)

@@ -27,9 +27,6 @@ function MovieCard(props) {
     }
   )
 
-  const logId = () => {
-    navigate(`moviepage/${id}`, {state:{imdbId: {id}}});
-  }
   return (
     <Card  sx={{ height: 385, width: 185.3, margin: "auto"}}>
         <CardMedia
@@ -48,7 +45,7 @@ function MovieCard(props) {
           </Typography>
         </CardContent>
       <CardActions>
-        <Button size="small" onClick={logId}>
+        <Button size="small" onClick={() => navigate(`moviepage/${id}`, { replace: true, state:{imdbId: {id}}})}>
           Rate
         </Button>
       </CardActions>

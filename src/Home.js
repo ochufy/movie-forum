@@ -2,12 +2,21 @@ import SideHeading from "./SideHeading.js";
 import SearchBar from "./SearchBar.js";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import PopularCarousel from "./PopularCarousel.js";
 import Dashboard from "./Dashboard.js";
 //import ForumButton from "./ForumButton.js";
 // import CarouselTest from "./CarouselTest.js";
 
 function Home() {
+  const theme1 = createTheme(
+    {
+      typography: {
+        fontFamily: "Teko",
+        fontSize: 25,
+      }
+    }
+  );
   return (
     <>
     <Dashboard />
@@ -20,7 +29,6 @@ function Home() {
       width: "100%",
       height: 500,
       margin: "2% auto",
-      backgroundColor: "blue",
       display: "flex",
       justifyContent: 'space-evenly',
       flexWrap: 'wrap',
@@ -33,12 +41,14 @@ function Home() {
           justifyContent: 'center',
           flexWrap: 'wrap',
           alignItems: 'center',
-          flexDirection: 'column',
-          backgroundColor: "red"
+          flexDirection: 'column'
         }}
       >
+      <ThemeProvider theme={theme1}>
       <Typography variant="h5">POPULAR MOVIES</Typography>
+      </ ThemeProvider>
       <PopularCarousel />
+
       </Box>
       <Box
         sx={{
@@ -46,11 +56,12 @@ function Home() {
           justifyContent: 'center',
           flexWrap: 'wrap',
           alignItems: 'center',
-          flexDirection: 'column',
-          backgroundColor: "green"
+          flexDirection: 'column'
         }}
       >
-      <Typography variant="h5">OUR TOP PICKS</Typography>
+      <ThemeProvider theme={theme1}>
+      <Typography variant="h5">RECOMMENDED</Typography>
+      </ ThemeProvider>
       <PopularCarousel />
       </Box>
     </ Box>

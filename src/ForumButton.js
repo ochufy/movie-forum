@@ -1,13 +1,13 @@
 import Button from "@mui/material/Button";
 import {useNavigate} from "react-router-dom";
 
-function ForumButton(){
+function ForumButton(props){
   const navigate = useNavigate();
   return(
     <Button
       variant="outlined"
       color="success"
-      onClick={() => navigate("/forum")}
+      onClick={() => navigate(`/forum/${props.id}`, { replace: true, state:{title: `${props.title}`}})}
     >
       Forum
     </Button>
