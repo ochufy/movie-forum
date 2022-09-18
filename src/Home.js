@@ -7,6 +7,7 @@ import PopularCarousel from "./PopularCarousel.js";
 import Dashboard from "./Dashboard.js";
 import Button from "@mui/material/Button";
 import {useNavigate} from "react-router-dom";
+import ForumButton from "./ForumButton.js";
 
 function Home() {
 
@@ -53,11 +54,14 @@ function Home() {
       </ ThemeProvider>
       <PopularCarousel />
       </Box>
+      <ForumButton />
+
     <a href="http://localhost:8501/" target="blank" className="recommendButton"
-      sx={{ml:"90%", mb: "10%"}}
+      sx={{ml:"90%", mb: "0%"}}
       // onClick={() => {navigate("http://localhost:8501/")}}
     >RECOMMEND ME MOVIES!</a>
     </ Box>
+
     </>
   );
 }
