@@ -28,7 +28,7 @@ function MovieCard(props) {
   )
 
   return (
-    <Card  sx={{ height: 385, width: 185.3, margin: "auto"}}>
+    <Card  sx={{ height: 385, width: 185.3, margin: "auto", mt: "5%"}}>
         <CardMedia
           component="img"
           width="185.3"

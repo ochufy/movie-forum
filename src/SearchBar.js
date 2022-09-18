@@ -28,7 +28,7 @@ function SearchBar() {
     );
     setTimeout(()=>
       {navigate(`moviepage/${id}`, { replace: true, state:{imdbId: {id}}})},
-    3000);
+    5000);
 
   }
 
@@ -55,6 +55,20 @@ function SearchBar() {
           <TextField
             {...params}
             label="search movie"
+            onKeyPress={(e) => {
+             if (e.key === "Enter")
+               {Axios.get(`https://imdb-api.com/en/API/SearchMovie/${process.env.REACT_APP_IMDB_KEY}/` + title)
+               .then(
+                 (response) => {
+                   id = response.data.results[0].id;
+                   console.log(id);
+                   console.log(response.data.results[0].title);
+                 }
+               );
+               setTimeout(()=>
+                 {navigate(`moviepage/${id}`, { replace: true, state:{imdbId: {id}}})},
+               3000);}
+            }}
             sx={{
               "& label": {
                 marginLeft: "40%",
@@ -64,7 +78,7 @@ function SearchBar() {
           />
         }
       />
-      <Button onClick={getId} variant="contained" size="small" sx={{mt:"0.5%", ml:"90%"}}>search</ Button>
+      <Button onClick={getId} variant="contained" size="small" sx={{mt:"0.5%", ml:"80rem"}}>search</ Button>
     </Box>
   );
 }

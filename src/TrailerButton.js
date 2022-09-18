@@ -12,7 +12,9 @@ function TrailerButton(props){
     .then(
       (response) => {
         setVideoLink(response.data.link);
-        window.open(videoLink);
+        // console.log(videoLink);
+        setTimeout(() => {window.open(videoLink);}, 4000)
+
       }
     )
   }

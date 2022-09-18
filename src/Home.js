@@ -5,10 +5,14 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import PopularCarousel from "./PopularCarousel.js";
 import Dashboard from "./Dashboard.js";
-//import ForumButton from "./ForumButton.js";
-// import CarouselTest from "./CarouselTest.js";
+import Button from "@mui/material/Button";
+import {useNavigate} from "react-router-dom";
 
 function Home() {
+
+  const navigate = useNavigate();
+
+
   const theme1 = createTheme(
     {
       typography: {
@@ -45,25 +49,14 @@ function Home() {
         }}
       >
       <ThemeProvider theme={theme1}>
-      <Typography variant="h5">POPULAR MOVIES</Typography>
-      </ ThemeProvider>
-      <PopularCarousel />
-
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: 'center',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          flexDirection: 'column'
-        }}
-      >
-      <ThemeProvider theme={theme1}>
-      <Typography variant="h5">RECOMMENDED</Typography>
+      <Typography variant="h5" sx={{color: "white", border: "3px solid white"}}>POPULAR MOVIES</Typography>
       </ ThemeProvider>
       <PopularCarousel />
       </Box>
+    <a href="http://localhost:8501/" target="blank" className="recommendButton"
+      sx={{ml:"90%", mb: "10%"}}
+      // onClick={() => {navigate("http://localhost:8501/")}}
+    >RECOMMEND ME MOVIES!</a>
     </ Box>
     </>
   );

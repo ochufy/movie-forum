@@ -1,6 +1,7 @@
 body {
   background-color: #F1F0C0;
   background-image: url("cartographer.png");
+  overflow: hidden;
 }
 
 /* #landingText {
@@ -8,3 +9,18 @@ body {
 } */
 
 /* red #8f0000 */
+
+.recommendButton {
+  background-color: #1b5e20;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-family: "Teko";
+  font-size: 28px;
+  margin-bottom: 50px;
+}
+
+.recommendButton:hover {
+  background-color: #2c7a31;
+}

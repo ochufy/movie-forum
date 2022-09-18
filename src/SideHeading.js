@@ -21,7 +21,6 @@ function SideHeading(){
           sx={{
             top:15,
             left:50,
-            width: "29%",
             position: "absolute"
           }}
         >

@@ -123,6 +123,7 @@ const movieListForSearchBar = [
   { title: 'Snatch', year: 2000 },
   { title: '3 Idiots', year: 2009 },
   { title: 'Monty Python and the Holy Grail', year: 1975 },
+  { title: 'Avatar', year: 2009}
 ];
 
 export default movieListForSearchBar;

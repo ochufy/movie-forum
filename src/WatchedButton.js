@@ -62,7 +62,7 @@ function WatchedButton(props) {
             <FormControlLabel value="no" control={<Radio />} label="No" onClick={() => showRating(false)}/>
           </RadioGroup>
         </FormControl>
-        {rating && <RatingStars />}
+        {rating && <RatingStars title={props.title}/>}
       </Card>
     </Box>
   );
